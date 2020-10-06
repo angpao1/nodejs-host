@@ -6,12 +6,12 @@ const http = require('http');
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.use(function (req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD, OPTIONS")
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD, OPTIONS")
+//     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 app.use('/products', productRoutes)
 
@@ -22,6 +22,6 @@ const httpServer = http.createServer(app);
 //     console.log('Listening on port ' + port)
 // })
 
-httpServer.listen(4000, () => {
+httpServer.listen(4000, "127.0.0.1", () => {
 	console.log('HTTP Server running on port 4000');
 });
